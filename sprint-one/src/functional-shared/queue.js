@@ -17,15 +17,17 @@ var Queue = function() {
 
  var queueMethods = {
   resize: function(){
-
+    
   },
 
   enqueue: function(){
-
+    this.length++;
   },
 
   dequeue: function(){
-
+    if(this.length !== 0){
+      this.length--;
+    }
   },
 
   size: function(){

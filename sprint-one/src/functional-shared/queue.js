@@ -17,17 +17,31 @@ var Queue = function() {
 
  var queueMethods = {
   resize: function(){
-    
+    if(this.queueHead > this.queueRear){
+      this.length = 0;
+    } else if(this.queueHead === this.queueRear){
+      this.length = 1;
+    } else {
+      this.length = this.queueRear - this.queueHead + 1;
+    }
   },
 
-  enqueue: function(){
-    this.length++;
+  enqueue: function(value){
+    this.queueRear++;
+    let index = this.queueRear;
+    this[index] = value;
+    this.resize();
   },
 
   dequeue: function(){
+    let index = this.queueHead;
+    let item = this[index];
     if(this.length !== 0){
-      this.length--;
+      this.queueHead++;
     }
+    delete this[index];
+    this.resize();
+    return item;
   },
 
   size: function(){

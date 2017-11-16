@@ -9,12 +9,18 @@ var extend = function(obj, methods){
 var stackMethods = {
   push: function(value){
     this.currentSize++
+    let index = this.currentSize
+    this[index] = value;
   }, 
 
   pop: function(){
+    let index = this.currentSize;
+    let item = this[index];
+    delete this[index];
     if(this.currentSize !== 0){
-    this.currentSize--
-  }
+      this.currentSize--
+    }
+    return item;
   }, 
 
   size: function(){

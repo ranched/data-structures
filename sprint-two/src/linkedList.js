@@ -23,7 +23,16 @@ var LinkedList = function() {
   };
 
   list.contains = function(target) {
-  
+    var found = false;
+    var node = list.head;
+    while(!found && node){
+      if(node.value === target){
+        found = true;
+      } else{
+        node = node.next;
+      }
+    }
+    return found;
   };
 
   return list;
@@ -40,4 +49,9 @@ var Node = function(value) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ * LinkedList = constant
+ * addToTail = constant
+ * removeHead = constant
+ * contains = linear
+ * Node = constant
  */

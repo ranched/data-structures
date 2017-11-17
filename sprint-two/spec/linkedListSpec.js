@@ -51,5 +51,11 @@ describe('linkedList', function() {
     expect(linkedList.contains(4)).to.equal(false);
   });
 
+  it('should not have a head after addind and removing an item', function() {
+    linkedList.addToTail(3);
+    linkedList.removeHead();
+    expect(linkedList.head).to.equal(null);
+  });
+
   // add more tests here to test the functionality of linkedList
 });

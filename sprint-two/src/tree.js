@@ -1,37 +1,9 @@
 var extend = function(obj, methods) {
-  for(var key in methods) {
+  for (var key in methods) {
     obj[key] = methods[key];
   }
-}
-
-var Stack = function() {
-  var someInstance = {};
-
-  // Use an object with numeric keys to store values
-  var storage = {};
-  var size = 0;
-  // Implement the methods below
-  someInstance.push = function(value) {
-    size++;
-    storage[size] = value;
-  };
-
-  someInstance.pop = function() {
-    if(size !== 0){
-      var item = storage[size];
-      delete storage[size]
-      size--;
-      return item;
-    }
-  };
-
-  someInstance.size = function() {
-    return size;
-  };
-
-  return someInstance;
 };
-var stack = Stack();
+
 
 var Tree = function(value) {
   var newTree = {};
@@ -49,13 +21,12 @@ treeMethods.addChild = function(value) {
 
 treeMethods.contains = function(target) {
   let currentValue = this.value;
-  let present = false;
-  if(currentValue === target) {
+  if (currentValue === target) {
     return true;
-  } 
-  else if(this.children.length !== 0) {
+  } else if (this.children.length !== 0) {
+    let present = false;
     this.children.forEach(function(child) {
-      if(present !== true){
+      if (present !== true) {
         present = child.contains(target);
       }    
     });

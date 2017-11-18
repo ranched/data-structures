@@ -24,20 +24,14 @@ treeMethods.contains = function(target) {
   if (currentValue === target) {
     return true;
   } else if (this.children.length !== 0) {
-    let present = false;
-    this.children.forEach(function(child) {
-      if (present !== true) {
-        present = child.contains(target);
-      }    
-    });
-    return present;
-  } else {
-    return false;
+    for( var child of this.children ){
+      if (child.contains(target)) {
+        return true;
+      }
+    }
   }
+  return false;
 };
-
-
-
 /*
  * Complexity: What is the time complexity of the above functions?
  * parentheses indicate inner function being called within function

@@ -9,7 +9,7 @@ var HashTable = function() {
 
 HashTable.prototype.insert = function(k, v) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  if(this._storage.get(index) === undefined){
+  if (this._storage.get(index) === undefined) {
     let tupl = LimitedArray(this._tuplSize);
     tupl.set(0, k);
     tupl.set(1, v);
@@ -17,14 +17,21 @@ HashTable.prototype.insert = function(k, v) {
     let bucket = LimitedArray(this._bucketSize);
     bucket.set(0, tupl);
     this._storage.set(index, bucket);
+  } else {
+    let bucket = this._storage.get(index);
+    for (var i = 0; i < this._bucketSize; i++) {
+    if (bucket.get(i).get(0) === k) {
+      return bucket.get(i).set(1, v);
+    }
+  }
   }
 };
 
 HashTable.prototype.retrieve = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   let bucket = this._storage.get(index);
-  for(var i = 0; i < this._bucketSize; i++){
-    if(bucket.get(i).get(0) === k){
+  for (var i = 0; i < this._bucketSize; i++) {
+    if (bucket.get(i).get(0) === k) {
       return bucket.get(i).get(1);
     }
   }

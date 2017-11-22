@@ -7,12 +7,12 @@ var HashTable = function() {
   this._brokenIn = false;
 };
 
-HashTable.prototype._percentFull = function(){
+HashTable.prototype._percentFull = function() {
   return this._itemCount / this._limit;
 };
 
 //
-HashTable.prototype.empty = function(size){
+HashTable.prototype.empty = function(size) {
   this._limit = size;
   this._itemCount = 0;
   this._storage = LimitedArray(this._limit);
@@ -24,21 +24,21 @@ HashTable.prototype.resize = function(relativeSize) {
   let newStorageSize = currentStorageSize * relativeSize;
   let tempStorage = [];
 
-  this._storage.each(function(currItem, index, storage){
+  this._storage.each(function(currItem, index, storage) {
     tempStorage.push(currItem);
   });
   this.empty(newStorageSize); 
-  tempStorage.forEach(function(bucket){
-      if(bucket){
-        for(let i = 0; i < bucket.length; i++){
-          if(bucket[i]){
-            let key = bucket[i][0];
-            let value = bucket[i][1];
-            this.insert(key, value);
-          }
-        }  
-      }
-    }, this);
+  tempStorage.forEach(function(bucket) {
+    if (bucket) {
+      for (let i = 0; i < bucket.length; i++) {
+        if (bucket[i]) {
+          let key = bucket[i][0];
+          let value = bucket[i][1];
+          this.insert(key, value);
+        }
+      }  
+    }
+  }, this);
 };
 
 HashTable.prototype.insert = function(k, v) {
@@ -52,28 +52,28 @@ HashTable.prototype.insert = function(k, v) {
     let bucket = this._storage.get(index);
     let inserted = false;
     // check each tupl in the bucket 
-      for (var i = 0; i < bucket.length; i++) {
-        //if there's an existing tupl with the given key
-        if (bucket[i][0] === k) {
-          //replace the existing tupl value with the provided value
-          bucket[i][1] = v;
-          inserted = true;
-        }
-      }
-      //if there was not a matching tupl key already in the bucket
-      if(!inserted){
-        //put the k,v pair in the bucket as a tupl
-        bucket.push([k, v]);
+    for (var i = 0; i < bucket.length; i++) {
+      //if there's an existing tupl with the given key
+      if (bucket[i][0] === k) {
+        //replace the existing tupl value with the provided value
+        bucket[i][1] = v;
         inserted = true;
       }
+    }
+    //if there was not a matching tupl key already in the bucket
+    if (!inserted) {
+      //put the k,v pair in the bucket as a tupl
+      bucket.push([k, v]);
+      inserted = true;
+    }
   }
   this._itemCount++;
   //check to see if the hash has been used to avoid 
   //resizing the initial hash size any smaller before necessary
-  if(!this._brokenIn && this._itemCount === 4){
+  if (!this._brokenIn && this._itemCount === 4) {
     this._brokenIn = true;
   }
-  count = this._itemCount
+  count = this._itemCount;
   //if the hash is getting full, double it's size
   if (this._percentFull() >= 0.75) {
     this.resize(2);
@@ -97,7 +97,7 @@ HashTable.prototype.retrieve = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   let bucket = this._storage.get(index);
   //if the key's index exists
-  if(bucket){
+  if (bucket) {
     var name;
     //check each tupl in the bucket
     for (var i = 0; i < bucket.length; i++) {
@@ -122,7 +122,7 @@ HashTable.prototype.remove = function(k) {
     }
   }
   this._itemCount--;
-  if (this._percentFull() < 0.25  && this._brokenIn) {
+  if (this._percentFull() < 0.25 && this._brokenIn) {
     this.resize(0.5);
   }
 };

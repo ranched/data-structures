@@ -8,25 +8,25 @@ var Stack = function() {
 };
 
 var stackMethods = {
-  push: function(value){
+  push: function(value) {
     this.length++;
     this[this.length] = value;
   },
 
-  pop: function(){
+  pop: function() {
     let item = this[this.length];
     delete this[this.length];
-    if(this.length !== 0){
-      this.length--
+    if (this.length !== 0) {
+      this.length--;
     }
     return item;
   },
 
-  size: function(){
-    return this.length
+  size: function() {
+    return this.length;
   },
 
-  getLastRemovedItem: function(){
+  getLastRemovedItem: function() {
     return this[this.length + 1];
   }
 };

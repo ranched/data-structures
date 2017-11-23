@@ -5,24 +5,24 @@ var Stack = function() {
 
 };
 
-Stack.prototype.push = function(value){
-    this.length++;
-    this[this.length] = value;
-  };
+Stack.prototype.push = function(value) {
+  this.length++;
+  this[this.length] = value;
+};
 
-Stack.prototype.pop = function(){
-    let item = this[this.length];
-    delete this[this.length];
-    if(this.length !== 0){
-      this.length--;
-    }
-    return item;
-  };
+Stack.prototype.pop = function() {
+  let item = this[this.length];
+  delete this[this.length];
+  if (this.length !== 0) {
+    this.length--;
+  }
+  return item;
+};
 
-Stack.prototype.size = function(){
-    return this.length;
-  };
+Stack.prototype.size = function() {
+  return this.length;
+};
 
-Stack.prototype.getLastRemovedItem = function(){
+Stack.prototype.getLastRemovedItem = function() {
   return this[this.length + 1];
 };

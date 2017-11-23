@@ -17,7 +17,7 @@ var Stack = function() {
   //remove values from the stack
   someInstance.pop = function() {
     //if the stack is not empty
-    if(size !== 0){
+    if (size !== 0) {
       //set temp variable equal to top value
       var item = storage[size];
       //delete the top stack item
@@ -28,7 +28,7 @@ var Stack = function() {
     }
   };
 
-  someInstance.getLastRemovedItem = function(){
+  someInstance.getLastRemovedItem = function() {
     return storage[size + 1];
   };
 

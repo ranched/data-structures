@@ -25,6 +25,10 @@ var stackMethods = {
   size: function(){
     return this.length
   },
+
+  getLastRemovedItem: function(){
+    return this[this.length + 1];
+  }
 };
 
 

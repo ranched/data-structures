@@ -28,6 +28,10 @@ var Stack = function() {
     }
   };
 
+  someInstance.getLastRemovedItem = function(){
+    return storage[size + 1];
+  };
+
   someInstance.size = function() {
     return size;
   };

@@ -22,3 +22,7 @@ Stack.prototype.pop = function(){
 Stack.prototype.size = function(){
     return this.length;
   };
+
+Stack.prototype.getLastRemovedItem = function(){
+  return this[this.length + 1];
+};

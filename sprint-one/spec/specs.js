@@ -69,6 +69,13 @@ define([
         expect(stack.pop()).to.equal('b');
       });
 
+      it('should not retain items after removing them', function(){
+        stack.push('memory');
+        stack.push('leak');
+        stack.pop();
+        expect(stack.getLastRemovedItem()).to.equal(undefined);
+      });
+
     });
 
     describe('stack-specific behavior', function() {

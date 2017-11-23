@@ -8,14 +8,17 @@ var Queue = function() {
   var size = 0;
   
   var resize = function(){
+    //if queue empty
     if(queueRear < queueHead){
       size = 0;
+      //else if queue has one item
     } else if(queueRear === queueHead){
       size = 1;
+      //else end minus beginning equals queue length (plus one for offset)
     } else {
       size = queueRear - queueHead + 1;
     }
-  }
+  };
   // Implement the methods below
 
   someInstance.enqueue = function(value) {

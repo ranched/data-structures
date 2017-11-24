@@ -10,15 +10,15 @@ var BinarySearchTree = function(value) {
 
 var treeMethods = {
 
-  insert : function(value){
-    if(this.value > value){
-      if(this.left){
+  insert: function(value) {
+    if (this.value > value) {
+      if (this.left) {
         this.left.insert(value);
       } else {
         this.createChildNode(value, 'left');
       }
     } else {
-      if(this.right){
+      if (this.right) {
         this.right.insert(value);
       } else {
         this.createChildNode(value, 'right');
@@ -26,27 +26,27 @@ var treeMethods = {
     }
   },
 
-  contains : function(value){
+  contains: function(value) {
     if (this.value === value) {
       return true;
-    } else if (this.value > value){
+    } else if (this.value > value) {
       return this.left ? this.left.contains(value) : false;
     } else {
       return this.right ? this.right.contains(value) : false;
     }
   },
 
-  depthFirstLog : function(func){
+  depthFirstLog: function(func) {
     func(this.value);
-    if(this.left !== null){
+    if (this.left !== null) {
       this.left.depthFirstLog(func);
     }
-    if(this.right !== null){
+    if (this.right !== null) {
       this.right.depthFirstLog(func);
     }
   },
 
-  createChildNode : function(value, side){
+  createChildNode: function(value, side) {
     let node = BinarySearchTree(value);
     node.value = value;
     node.parent = this;

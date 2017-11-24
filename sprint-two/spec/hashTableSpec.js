@@ -35,6 +35,14 @@ describe('hashTable', function() {
     expect(hashTable.retrieve('Steven')).to.equal(undefined);
   });
 
+  //add test
+
+  it('should not contain values that should have been overwritten', function() {
+    hashTable.insert('Willie', 'Wonka');
+    hashTable.insert('Willie', 'Nelson');
+    expect(hashTable.retrieve('Willie')).not.to.equal('Wonka');
+  });
+
   it('should handle hash function collisions', function() {
     var v1 = 'val1';
     var v2 = 'val2';

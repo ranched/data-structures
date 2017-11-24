@@ -37,4 +37,18 @@ describe('binarySearchTree', function() {
     binarySearchTree.depthFirstLog(func);
     expect(array).to.eql([5, 2, 3, 7]);
   });
+
+  //add test
+
+  it('should list the path of nodes to target', function(){
+    var array1 = [5, 2, 3];
+    var array2 = [5, 7, 6];
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(3);
+    binarySearchTree.insert(7);
+    binarySearchTree.insert(6);
+    expect(binarySearchTree.pathToNodeLog(3)).to.eql(array1);
+    expect(binarySearchTree.pathToNodeLog(6)).to.eql(array2);
+  });
+
 });

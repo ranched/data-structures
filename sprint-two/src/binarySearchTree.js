@@ -1,5 +1,5 @@
 var BinarySearchTree = function(value) {
-  var tree = Object.create(treeMethods);
+  var tree = Object.create(binaryTreeMethods);
   tree.parent = null;
   tree.left = null;
   tree.right = null;
@@ -8,7 +8,7 @@ var BinarySearchTree = function(value) {
   return tree;
 };
 
-var treeMethods = {
+var binaryTreeMethods = {
 
   insert: function(value) {
     if (this.value > value) {
@@ -45,7 +45,21 @@ var treeMethods = {
       this.right.depthFirstLog(func);
     }
   },
-
+  
+  pathToNodeLog: function(target, nodePath = []) {
+    if(this.value === target){
+      nodePath.push(this.value);
+      return nodePath;
+    }
+    nodePath.push(this.value);
+    if (this.left !== null && this.value > target) {
+      return this.left.pathToNodeLog(target, nodePath);
+    }
+    if (this.right !== null && this.value < target) {
+      return this.right.pathToNodeLog(target, nodePath);
+    }
+    return nodePath;
+  },
   createChildNode: function(value, side) {
     let node = BinarySearchTree(value);
     node.value = value;

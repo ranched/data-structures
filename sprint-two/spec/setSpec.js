@@ -26,7 +26,7 @@ describe('set', function() {
 
   //add test 
 
-  it('should add numbers to a set', function(){
+  it('should add numbers to a set', function() {
     set.add(4);
     expect(set.contains(4)).to.equal(true);
   });

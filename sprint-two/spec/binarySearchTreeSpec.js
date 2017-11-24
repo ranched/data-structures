@@ -40,7 +40,7 @@ describe('binarySearchTree', function() {
 
   //add test
 
-  it('should list the path of nodes to target', function(){
+  it('should list the path of nodes to target', function() {
     var array1 = [5, 2, 3];
     var array2 = [5, 7, 6];
     binarySearchTree.insert(2);

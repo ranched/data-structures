@@ -70,7 +70,7 @@ describe('graph', function() {
   });
 
   //add test
-  it('should remove all corresponding edges when a node is removed', function(){
+  it('should remove all corresponding edges when a node is removed', function() {
     var connectToFive = function(item) {
       graph.addEdge(item, 5);
     };

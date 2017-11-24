@@ -47,7 +47,7 @@ var binaryTreeMethods = {
   },
   
   pathToNodeLog: function(target, nodePath = []) {
-    if(this.value === target){
+    if (this.value === target) {
       nodePath.push(this.value);
       return nodePath;
     }

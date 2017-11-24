@@ -43,7 +43,7 @@ describe('tree', function() {
   
   //add test
 
-  it('should return false for an empty tree', function(){
+  it('should return false for an empty tree', function() {
     expect(tree.contains(1)).to.equal(false);
   });
 });

@@ -49,9 +49,9 @@ var Node = function(value) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
- * LinkedList = constant
- * addToTail = constant
- * removeHead = constant
- * contains = linear
- * Node = constant
+ * LinkedList = constant O(1)
+ * addToTail = constant O(1)
+ * removeHead = constant O(1)
+ * contains = linear O(n)
+ * Node = constant O(1)
  */

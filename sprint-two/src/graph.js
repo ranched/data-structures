@@ -12,7 +12,7 @@ Graph.prototype.addNode = function(node) {
   }; 
 };
 
-// Return a boolean value indicating if the value passed to contains is represented in the graph.
+// Return a boolean value indicating if the value passed to function is represented in the graph.
 Graph.prototype.contains = function(node) {
   return this.hasOwnProperty(node);
 };
@@ -59,6 +59,14 @@ Graph.prototype.forEachNode = function(cb) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ * Graph constant O(1)
+ * addNode constant O(1)
+ * contains constant O(1)
+ * removeNode linear O(n)
+ * hasEdge constant O(1)
+ * addEdge constant O(1)
+ * removeEdge constant O(1)
+ * forEachNode linear O(n)
  */
 
 

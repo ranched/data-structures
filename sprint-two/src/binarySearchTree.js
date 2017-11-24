@@ -56,4 +56,9 @@ var treeMethods = {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ * BinarySearhTree constant O(1)
+ * insert logarithmic O(log n)
+ * contains logarithmic O(log n)
+ * depthFirstLog linear O(n)
+ * createChildNode constant O(1)
  */

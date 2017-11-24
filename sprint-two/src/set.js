@@ -20,4 +20,9 @@ setPrototype.remove = function(item) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ * Set constant O(1)
+ * add constant O(1)
+ * contains constant O(1)
+ *remove constant O(1)
+ *
  */

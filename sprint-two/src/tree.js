@@ -36,14 +36,14 @@ treeMethods.contains = function(target) {
  * Complexity: What is the time complexity of the above functions?
  * parentheses indicate inner function being called within function
  *
- * extend - linear
- * Stack - constant
- *  someInstance.push - constant
- *  someInstance.pop - constant
- *  someInstance.size - constant
- * Tree - linear
- *  (extend) - linear
- * treeMethods.addChild - constant
- * treeMethods.contains - linear
+ * extend - linear  O(n)
+ * Stack - constant O(1)
+ *  someInstance.push - constant O(1)
+ *  someInstance.pop - constant O(1)
+ *  someInstance.size - constant O(1)
+ * Tree - linear O(n)
+ *  (extend) - linear O(n)
+ * treeMethods.addChild - constant O(1)
+ * treeMethods.contains - linear O(n)
  */
 

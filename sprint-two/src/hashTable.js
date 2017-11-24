@@ -131,6 +131,13 @@ HashTable.prototype.remove = function(k) {
 //test to see that old valuse don't exist after re-assigning
 /*
  * Complexity: What is the time complexity of the above functions?
+ * HashTable constant O(1)
+ * _percentFull constant O(1)
+ * empty constant O(1)
+ * resize linear O(n)
+ * insert amortized O(1)
+ * retrieve amortized O(1)
+ * remove amortized O(1)
  */
 
 
